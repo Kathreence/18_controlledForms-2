@@ -5,25 +5,11 @@ export function Login() {
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
 
-  const inputChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    const checked = event.target.checked;
-    if (name === "username") {
-      setUsername(value);
-    } else if (name === "password") {
-      setPassword(value);
-    } else {
-      setRemember(checked);
-    }
-  };
-
-
   return (
     <div>
-      <input name="username" type="text" onChange={inputChange} />
-      <input name="password" type="password" onChange={inputChange} />
-      <input name="remember" type="checkbox" onChange={inputChange} />
+      <input name="username" value={username} type="text" onChange={(e) => setUsername(e.target.value)} />
+      <input name="password" value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
+      <input name="remember" value={remember} type="checkbox" onChange={(e) => setRemember(e.target.checked)} />
     </div>
   );
 }
